@@ -1,0 +1,164 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Courier</title>
+
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/track.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+<body>
+   {% include 'header.html' %}
+
+    <div>
+        <marquee direction="left" scrollamount=6>
+            <p style="color:red;width: 50px;">If <strong>COVID-19</strong> is spreading in your community, stay safe by taking some simple precaution, such as<strong> physical distancing, wearing a mask, keeping rooms well ventilated,avoiding crowds</strong>. Check local advice where you live. <strong>Do it all</strong></p>
+        </marquee>
+    </div>
+
+
+    <div class="main-box">
+        <div class="form-box">
+            <div class="tracklogo">
+                <img src="{% static 'images/track-dart.png' %}" alt="track-dart logo">
+            </div>
+            <div class="btn-box">
+                <div id="btn"></div>
+                <button type="button" class="switch-btn" onclick="waybill()">WayBill</button>
+                <button type="button" class="switch-btn" onclick="refno()">Ref No</button>
+                </div>
+
+            <form action="." id="waybill" class="input-group" method="POST"> {% csrf_token %}
+               
+                <Label for="waybillno" class="text">Enter Way Bill Number</Label>
+                <input type="text" name="refno"required class="input-field" placeholder="Eg:7484595456">
+                <p class='error'>{{error}}</p>
+                <button type="submit" class=" search-btn">Search</button>
+                
+
+            </form>
+            
+            <form action="." id="refno" class="input-group-2" method="POST"> {% csrf_token %}
+               
+                <Label for="refno" class="text">Enter Refernce Number</Label>
+                <input type="text" name="refno" required class="input-field" placeholder="Eg:7484595456">
+                <p class="error">{{error}}</p>
+                <button type="submit" class=" search-btn">Search</button>
+                
+            </form>
+        
+        </div>
+
+        <div class="map-box">
+              <!-- Google Map Copied Code -->
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6902.069159906391!2d78.28044362495176!3d30.12182397741652!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39093d8e9cef498b%3A0xa7047d70cc2c7a14!2sDhalwala%2C%20Rishikesh%2C%20Uttarakhand!5e0!3m2!1sen!2sin!4v1617704182472!5m2!1sen!2sin" 
+            width="400" 
+            height="310" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy">
+            </iframe>
+
+        </div>
+
+        <div class="detail-box">
+            <!-- live tracking details box -->
+            <div class="message-box">
+                <p>Your Tracking Details is given below....</p>
+            </div>
+
+            <div class="text">
+                Customer Details
+            </div>
+
+            <div class="info-box">
+                <!-- customer details box -->
+                <!-- <p>     Order Id : {{ref_id}}</p>
+                <p>     Customer name: {{name}}</p>
+                <p>     Email:         {{email}} </p>
+                <p>     Phone No:  {{phone}}</p>
+                <p>     From Location: {{from}}</p>
+                <p>     To location : {{to}} </p>
+                <p>     parcel weight: {{weight}} </p>
+                <p>     Total Cost : {{cost}}</p> -->
+
+                <table class="table">
+
+                       <tr>
+                           <th>ORDER ID</th>
+                           <th>NAME</th>
+                           <th>PHONE</th>
+                           <th>COST</th>
+                           <th>FROM</th>
+                           <th>TO</th>
+                           <th>WEIGHT</th>
+                       </tr>
+
+                       <tr>
+                            <th>{{ref_id}}</th>
+                            <th>{{name}}</th>
+                            <th>{{phone}}</th>
+                            <th>{{cost}}</th>
+                            <th>{{from}}</th>
+                            <th>{{to}}</th>
+                            <th>{{weight}}</th>
+
+                       </tr>
+                </table>
+            </div>
+            <div class="text">
+               Live location details
+            </div>
+
+            <div class="location-box">
+                <!-- courier location display box -->
+                <!-- <p>   Order Id:                  {{ref_id}}</p>
+                <p>   Customer name:             {{name}}</p>
+                <p>   Courier Location :         {{location}}</p>
+                <p>   Date:                      {{ordered_date}}</p>    -->
+
+                <table class="table">
+
+
+                    <tr>
+                        
+                        <th style="width: 142px;">ORDER ID</th>
+                        <th>NAME</th>
+                        <th style="width: 408px;">LOCATION</th>
+                        <th>DATE</th>
+                    </tr>
+
+                    <tr>
+
+                        <th>{{ref_id}}</th>
+                        <th>{{name}}</th>
+                        <th>{{location | linebreaks}}</th>
+                        <th>{{shipment_date |linebreaks }}</th>
+                    </tr>
+
+
+                </table>
+
+            </div>
+
+        </div>
+
+    
+    </div>
+
+    <div style="border: 5px solid red;">
+        {% include 'footer.html' %}
+   </div>
+
+
+<script src="{% static 'js/track.js' %}"></script>
+    
+</body>
+</html>

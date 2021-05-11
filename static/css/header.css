@@ -1,0 +1,44 @@
+#title {
+    border: 10px solid blue;
+    margin: 0px 5px;
+    padding: 0px 2px 0px 2px;
+}
+
+img {
+    display: inline-block;
+}
+
+#webtitle {
+    display: block;
+}
+
+.logo {
+    text-decoration: none;
+    color: darkgreen;
+    font-size: large;
+    font-weight: bold;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.logo:hover {
+    color: black;
+    text-decoration: none;
+}
+
+.logo:active {
+    color: red;
+    text-decoration: dotted;
+}
+
+.btn {
+    float: right;
+    background-color: black;
+    color: white;
+    margin: 2px 20px 2px 20px;
+    border-radius: 100px;
+}
+.btn:hover{
+    color:black;
+    background-color: white;
+    cursor:pointer;
+}

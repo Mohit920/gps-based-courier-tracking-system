@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>send courier</title>
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css'%}">
+    <link rel="stylesheet" href="{% static 'css/send-courier.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    
+</head>
+<body>
+   
+   {% include 'header.html' %}
+
+   
+    <div>
+        <marquee direction="left" scrollamount=6>
+            <p style="color:red;width: 50px;">If <strong>COVID-19</strong> is spreading in your community, stay safe by taking some simple precaution, such as<strong> physical distancing, wearing a mask, keeping rooms well ventilated,avoiding crowds</strong>. Check local advice where you live. <strong>Do it all</strong></p>
+        </marquee>
+    </div>
+
+    <div class ="transaction">
+        <p style="color: red;">Reference No {{id }} </p>
+        <p style="color: red;">Delivery Cost {{cost}}  </p>
+    </div>
+
+    <div class="form-box">
+        
+        <form action="" class="input-group" method="POST">
+                {% csrf_token%}
+                <label for="fullname">Full Name</label>
+                <input type="text" name="fullname" id="name" class="input-field">
+                
+                <label for="contactno">Phone No</label>
+                <input type="tel" name="contactno" id="phoneno" class="input-field">
+        
+                <label for="email">Email</label>
+                <input type="email" name="email" id="emailid" class="input-field">
+        
+                <label for="pickupdate">Date & time</label>
+                <input type="datetime-local" name="pickupdate" id="orderdate" class="input-field">
+        
+               
+                <label for="address">Present Address</label>
+                <input type="text" name="address" id="user_address" class="input-field">
+            
+                <label for="from-location">From Location</label>
+                <input type="text" name="from-location" id="source-location" class="input-field">
+        
+                <label for="to-location">To Location</label>
+                <input type="text" name="to-location" id="destination" class="input-field">
+        
+                <label for="weight">Parcel Weight(kg)</label> 
+                <input type="text" name="weight" id="order-weight" class="input-field">
+                
+        
+                <button type="submit" class="submit-btn" value ='POST'>Submit</button>
+                <button type="reset" class="submit-btn">Reset</button>
+            
+
+        </form>            
+
+    </div>
+    
+    
+    
+    {% include 'footer.html' %}
+    
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+.Footer{
+  background-color: black;
+  margin-top: 20px;
+}
+.websitetitle{
+   color: white;
+   padding:  20px 100px;
+}
+.footercontent{
+  color: white ;
+  padding: 20px 200px;
+}
+
+.footercontent>a>img{
+
+  margin: 10px 30px;
+  border-radius: 50%;
+}

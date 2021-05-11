@@ -1,0 +1,35 @@
+body {
+    background-color: black;
+    margin: 50px 50px;
+}
+
+li {
+    color: white;
+    text-decoration: none;
+}
+
+h3 {
+    color: blue;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
+    text-decoration: underline;
+    font-size: small;
+    margin: 0px 50px;
+    padding: 5px 50px;
+}
+
+p {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: medium;
+    font-style: inherit;
+    font-weight: 400;
+    font-variant: unset;
+    font-stretch: ultra-condensed;
+    padding: 5px 10px;
+}
+
+a {
+    text-decoration: none;
+    padding: 5px 10px;
+    margin: auto auto;
+}

@@ -1,0 +1,109 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css'%}">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+   
+</head>
+<body>
+    
+
+        {% include 'header.html' %}
+        
+        <div>
+            <marquee direction="left" scrollamount=6>
+                <p style="color:red;width: 50px;">If <strong>COVID-19</strong> is spreading in your community, stay safe by taking some simple precaution, such as<strong> physical distancing, wearing a mask, keeping rooms well ventilated,avoiding crowds</strong>. Check local advice where you live. <strong>Do it all</strong></p>
+            </marquee>
+        </div>
+
+
+        <div  id ="trackblock" >
+            <div id="block1" >
+            <a href="{% url 'track-page' %}"><img  id ="trackdart"src="{% static 'images/track-dart.png' %}" alt="This is a immage of trackdart logo" width=200px height= 60px></a>
+            </div>
+
+            <div id="block2">
+
+                <!-- form for getting orderId -->
+                <form  action="." method="POST" >
+                    {% csrf_token %}
+                    <h6 class="textstyle">TRACK COURIER BY</h6>
+                    <div>
+                        <label class="textstyle" for="Waybill">Waybill</label>
+                        <input type="radio" name="Waybill" id="Waybill" value="waybill" checked>
+                        <label class="textstyle" for="Refno">Reference No</label>
+                        <input type="radio" name="Refno" id="refId" value="refno" unchecked>
+                    
+                    </div>
+                    <div>
+                        <label  class="textstyle" for="Order">Enter details</label>
+                        <input type="text" name="Order" id="enteredid" width="500px">
+                    </div>
+
+                    <div>
+                        
+                            <p style="color: red;margin-left: 10px;">{{error}}</p>
+                        
+                    </div>
+                    <div>
+                        <input type="checkbox" name="agree" id="agree" value="1">
+                        <label for="agree" class="textstyle">Agree with Terms and Conditons</label>
+                    </div>
+
+                    <div>
+                        <button class="btn" type="reset">Reset</button>
+                        <button class="btn" type="submit" name ="POST">submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- crousel for displaying images -->
+        
+        <div class="carousell">    
+            <!-- Wrapper for slides -->
+            <div>
+                <img src="{% static 'images/homeimage1.png' %}" alt="image1"  height="315px">
+                <div id="services">
+                    <h6 class="textstyle">Our services</h6>
+                    <div>
+                        <ul class="text">
+                            <li>Tracking services</li>
+                            <li>Contactless delivery</li>
+                            <li>Door-to-door shipping</li>
+                            <li>Speed post</li>
+                            <li>Low price</li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+                
+        </div>  
+    
+
+    <div class="companydetail">
+        <h4 style="text-align: center;color: black;text-decoration: dashed; font-weight: 800;">Delivery's Transport Management System</h4>
+        <p >Our domestic courier services in India are backed by an integrated transport management system that enables the customers as well as the company to ensure seamless and convenient operations for all services related to domestic couriers in India.
+
+        With Delhivery’s transport management system for sending domestic couriers in India, customers can easily schedule convenient pick-ups and track their orders in real-time, while our domestic parcel service manages returns and replacements, and even helps with fraud detection. The TMS system helps move parcels from origin to destination efficiently, reliably, and cost-effectively.
+        </p>        
+
+    </div>
+    
+
+    {% include 'footer.html' %}
+
+    <script src="{% static 'js/index.js' %}"></script>
+
+</body>
+</html>

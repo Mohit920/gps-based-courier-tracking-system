@@ -1,0 +1,43 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>about</title>
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css'%}">
+    <link rel="stylesheet" href="{% static 'css/about.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+
+<body>
+    {% include 'header.html' %}
+
+    <h4><a href="{% url 'about-page' %}" style="color: black;">About Courier Tracking</a></h3>
+        <p>Hello welcome to our website!!!!!</p>
+        <p>This mini project is specially developed for tracking courier in real time. We are thankful that we have been given an opportunity to work on this wonderful project
+        </p>
+        <p>In this project is totally build using new technologies. The backbone of this project is html, css and some javascript. For building frontend we have used above technologies and backend is written in python with django framework.</p>
+        <div style="text-align: center;">
+        <img  src="{% static 'images/2.png' %} " alt="Image of track courier with leading partner!! " height="300px " width="800px ">
+
+        </div>
+        <p>Database that we have used in this project is RDBMS that is Mysql. This is all about our project. Thank you....!!!!!!!!!</p>
+        <p>
+            Let track some couirer.....!!!!
+        </p>
+        <div style="text-align: center;">
+        <img src="{% static 'images/courier1.png' %} " alt=" images " height="300px " width="800px ">
+        
+        </div>
+
+    {% include 'footer.html' %}
+</body>
+
+</html>

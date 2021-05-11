@@ -1,0 +1,60 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+
+    <link rel="stylesheet" href="{% static 'css/login.css'%}">
+    <link rel="stylesheet" href="{% static 'css/footer.css'%}">
+   
+</head>
+<body>
+
+    <div class="hero">
+        <div class="form-box">
+            <div class="btn-box">
+                <div id="btn"></div>
+                <button type="button" class="toggle-btn" onclick="login()">Log In</button>
+                <button type="button" class="toggle-btn" onclick="register()">Register</button>
+               </div>
+            
+
+            <div class="social-icons">
+
+                <img src="{% static 'images/fb.png'%}" alt="fb logo">
+                <img src="{% static 'images/twitter.png'%}" alt="twiter logo">
+                <img src="{% static 'images/google.png'%}" alt="google logo">
+            </div>
+            <form  id="login" action="." method = "POST" class="input-group">{% csrf_token %}
+                
+                <input type="text" class="input-field" placeholder="user Id" name="email" required>
+                <input type="text" class="input-field" placeholder="Enter Password"  name="password" required>
+                <input type="checkbox" class ="check-box" value="on" name="rem pass " checked><span>Remember Password</span >
+                <button type="submit" class="submit-btn" value="POST" onclick="loggedIn()">Log In </button> 
+                
+
+            </form>
+            <form id="register" action="." method="POST" class="input-group"> {% csrf_token %}
+               
+                <input type="text" class="input-field" placeholder="Full Name" required name="full_name">
+                <input type="text" class="input-field" placeholder="Email Id" required name="email">
+                <input type="text" class="input-field" placeholder="Enter Password" required name="password">
+                <input type="checkbox" class ="check-box" value="on" name="agreed" checked><span>I agree to the terms & conditons</span>
+                <button type="submit" class="submit-btn" value="POST" onclick="registered()">Register</button> 
+
+            </form>
+        </div>
+      
+      
+      
+        {% include 'footer.html'%}
+    </div>
+    <script src="{% static 'js/login.js'%}"></script>
+</body>
+</html>
